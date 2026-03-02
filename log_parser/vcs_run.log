@@ -1,0 +1,24 @@
+//example log file of synopsys vcs
+
+UVM_INFO @ 0ns [RNTST] Running test axi_base_test...
+UVM_INFO @ 0ns [uvm_test_top] Building environment...
+UVM_INFO @ 100ns [uvm_test_top.env.agent.driver] Starting AXI driver...
+UVM_INFO @ 150ns [uvm_test_top.env.agent.monitor] Monitor started...
+UVM_WARNING @ 200ns [uvm_test_top.env.scoreboard] No transactions received yet
+UVM_INFO @ 500ns [uvm_test_top.env.agent.driver] Driving WRITE transaction addr=0x0000_0004
+UVM_INFO @ 750ns [uvm_test_top.env.agent.monitor] Captured WRITE response OK
+UVM_ERROR @ 800ns [uvm_test_top.env.scoreboard] Data mismatch: expected=0xDEADBEEF got=0xCAFEBABE
+UVM_INFO @ 1000ns [uvm_test_top.env.agent.driver] Driving READ transaction addr=0x0000_0004
+UVM_WARNING @ 1100ns [uvm_test_top.env.agent.monitor] RVALID asserted without ARVALID
+UVM_ERROR @ 1200ns [uvm_test_top.env.scoreboard] Read data mismatch: expected=0xDEADBEEF got=0x00000000
+UVM_INFO @ 1500ns [uvm_test_top.env.agent.driver] Driving WRITE transaction addr=0x0000_0008
+UVM_FATAL @ 1600ns [uvm_test_top.env.agent.driver] AXI WVALID timeout - bus hung
+UVM_ERROR @ 1600ns [uvm_test_top.env.scoreboard] Transaction lost - no response received
+UVM_WARNING @ 1700ns [uvm_test_top.env.coverage] Coverage below threshold: 45.2%
+UVM_INFO @ 1800ns [uvm_test_top.env.agent.driver] Driving READ transaction addr=0x0000_0008
+UVM_ERROR @ 1900ns [uvm_test_top.env.scoreboard] Unexpected interrupt during READ phase
+UVM_WARNING @ 2000ns [uvm_test_top.env.agent.monitor] BREADY deasserted unexpectedly
+UVM_INFO @ 2100ns [uvm_test_top.env.agent.driver] Driving WRITE transaction addr=0x0000_000C
+UVM_FATAL @ 2200ns [uvm_test_top.env.agent.driver] Back-to-back FATAL: AWVALID never asserted
+UVM_INFO @ 2500ns [RNTST] Test completed
+UVM_INFO @ 2500ns [RNTST] UVM_ERROR: 4  UVM_WARNING: 4  UVM_FATAL: 2
