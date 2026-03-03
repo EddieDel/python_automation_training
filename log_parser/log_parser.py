@@ -5,7 +5,7 @@ from openpyxl.styles import Font, PatternFill
 def read_log(filename):
     with open(filename, "r") as f:
         return f.readlines()
-
+ 
 
 def parse_log(ex_lines):
     results = {"UVM_ERROR": [], "UVM_WARNING": [], "UVM_INFO": [], "UVM_FATAL": []}
@@ -33,7 +33,14 @@ def save_to_excel(results_out, prefered_name):
     for col, header in enumerate(headers, start=1):
         cell = ws.cell(row=1, column=col, value=header)
         cell.font = Font(bold=True)
-        cell.fill = PatternFill(start_color="FFFF00", end_color="FFFF00", fill_type="solid")
+        if header == "UVM_ERROR":
+            cell.fill = PatternFill(start_color="FF0000", end_color="FF0000", fill_type="solid")
+        elif header == "UVM_WARNING":
+            cell.fill = PatternFill(start_color="FFFF00", end_color="FFFF00", fill_type="solid")
+        elif header == "UVM_INFO":
+            cell.fill = PatternFill(start_color="33FF00", end_color="33FF00", fill_type="solid")
+        elif header == "UVM_FATAL":
+            cell.fill = PatternFill(start_color="FF0000", end_color="FF0000", fill_type="solid")    
         ws.column_dimensions[openpyxl.utils.get_column_letter(col)].width = 90
 
     # Write totals row
